@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    function dashboard() {
+    function dashboardUser() {
         return view('user.dashboard');
+    }
+    function dashboardAdmin() {
+        return view('admin.dashboard');
     }
 }
