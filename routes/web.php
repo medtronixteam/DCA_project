@@ -49,9 +49,6 @@ Route::post('password/forgot', [ForgotPasswordController::class, 'sendResetLink'
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
 
-
-
-
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::post('/update-name', [DashboardController::class, 'updateName'])->name('user.update.name');
@@ -73,3 +70,21 @@ Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+
+Route::group(
+    ['as' => 'admin.', 'middleware' => ['auth'], 'prefix' => 'admin'],
+    function () {
+
+        Route::get('dashboard', [DashboardController::class, 'dashboardAdmin'])->name('dashboard');
+
+    });
+
+ Route::group(
+        ['as' => 'user.', 'middleware' => ['auth'], 'prefix' => 'user'],
+        function () {
+
+    Route::get('dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard');
+
+});
