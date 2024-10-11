@@ -1,0 +1,73 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
+
+use App\Http\Livewire\ExampleComponent;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+Route::get('signup', [LoginController::class, 'signup'])->name('signup');
+
+
+Route::post('signup', [LoginController::class, 'registerUser'])->name('signup.store');
+
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::get('profile', [LoginController::class, 'profile'])->name('profile');
+Route::get('settings', [LoginController::class, 'settings'])->name('settings');
+Route::get('/logout', [LoginController::class, 'logout']);
+Route::post('login', [LoginController::class, 'authenticate'])->name('loginPost');
+
+
+Route::get('reset-password/{key}', [LoginController::class, 'resetPassword'])->name('reset.password');
+Route::post('reset-password', [LoginController::class, 'resetPasswordCh'])->name('reset.password.post');
+
+Route::get('verify/email', [LoginController::class, 'verifyEmail'])->name('verifyEmail');
+Route::get('forget-password', [LoginController::class, 'forgetPassword'])->name('forget.password');
+// ---------------------------------
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
+
+
+Route::get('password/forgot', [ForgotPasswordController::class, 'showForgotForm'])->name('password.forgot');
+Route::post('password/forgot', [ForgotPasswordController::class, 'sendResetLink'])->name('password.send');
+
+Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
+
+
+
+
+Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
