@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\ExampleComponent;
 use App\Http\Controllers\BotController;
+use App\Http\Controllers\InviteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -80,6 +81,7 @@ Route::group(
 
         Route::get('dashboard', [DashboardController::class, 'dashboardAdmin'])->name('dashboard');
 
+
     });
 
  Route::group(
@@ -88,5 +90,6 @@ Route::group(
 
     Route::get('dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard');
     Route::get('dca/bot', [BotController::class, 'index'])->name('bot.list');
+    Route::get('invite/friends', [InviteController::class, 'index'])->name('invites');
 
 });

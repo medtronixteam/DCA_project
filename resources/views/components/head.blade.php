@@ -26,6 +26,9 @@
     <link rel="stylesheet" href="{{url('admin/assets/pages/waves/css/waves.min.css')}}" type="text/css" media="all">
 
     <link rel="stylesheet" type="text/css" href="{{url('admin/assets/icon/feather/css/feather.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="{{url('admin/assets/icon/themify-icons/themify-icons.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('admin/assets/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('admin/assets/pages/notification/notification.css')}}">
+
+<link rel="stylesheet" type="text/css" href="{{url('admin/bower_components/animate.css/css/animate.css')}}">
 </head>
