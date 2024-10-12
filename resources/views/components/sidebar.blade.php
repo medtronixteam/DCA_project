@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li class=''>
-                    <a href="{{route('manage.bot')}}" class="waves-effect waves-dark">
+                    <a href="{{route('dashboard')}}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                             <i class="feather icon-layers"></i>
                         </span>

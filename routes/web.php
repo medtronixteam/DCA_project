@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\ExampleComponent;
+use App\Http\Controllers\BotController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,5 +88,6 @@ Route::group(
         function () {
 
     Route::get('dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard');
+    Route::get('dca/bot', [BotController::class, 'index'])->name('bot.list');
 
 });
