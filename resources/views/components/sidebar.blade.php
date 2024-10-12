@@ -94,7 +94,7 @@
                     </a>
                 </li>
                 <li class>
-                    <a href="{{route('dashboard')}}" class="waves-effect waves-dark">
+                    <a href="{{route('user.invites')}}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
                             <i class="feather icon-layers"></i>
                         </span>
