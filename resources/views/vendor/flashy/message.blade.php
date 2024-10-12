@@ -1,11 +1,11 @@
 <style>
 .flashy {
-    font-family: Arial, sans-serif;
-    padding: 11px 30px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 9px 30px;
     border-radius: 4px;
     font-weight: 400;
     position: fixed;
-    bottom: 20px;
+    top: 100px;
     right: 20px;
     font-size: 16px;
     color: #fff;
@@ -52,7 +52,9 @@
 }
 
 .flashy--info {
-    background: #00baf3;
+
+    background-color: #99c93d;
+    color: #fff;
 }
 
 .flashy > ul {
