@@ -51,7 +51,6 @@ Route::get('password/reset/{token}', [ResetPasswordController::class, 'showReset
 Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
 
 Route::get('dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard');
-Route::get('/bot-manage', [DashboardController::class, 'manage'])->name('manage.bot');
 
 Route::post('/update-name', [ProfileController::class, 'updateName'])->name('user.update.name');
 Route::post('/update-password', [ProfileController::class, 'updatePassword'])->name('user.update.password');
