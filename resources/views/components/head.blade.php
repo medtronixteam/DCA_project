@@ -29,3 +29,4 @@
 
     <link rel="stylesheet" type="text/css" href="{{url('admin/assets/css/style.css')}}">
 </head>
+///////
