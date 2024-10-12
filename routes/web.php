@@ -52,6 +52,8 @@ Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])
 
 Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
+Route::post('/update-name', [DashboardController::class, 'updateName'])->name('user.update.name');
+Route::post('/update-password', [DashboardController::class, 'updatePassword'])->name('user.update.password');
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
