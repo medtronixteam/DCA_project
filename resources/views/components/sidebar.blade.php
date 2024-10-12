@@ -1,7 +1,7 @@
 <nav class="pcoded-navbar">
     <div class="nav-list">
         <div class="pcoded-inner-navbar main-menu">
-            <div class="pcoded-navigation-label">Navigation</div>
+            <div class="pcoded-navigation-label">Main</div>
             <ul class="pcoded-item pcoded-left-item">
 
                 {{-- <li class="pcoded-hasmenu">
@@ -93,10 +93,11 @@
                         <span class="pcoded-mtext">Bot Management</span>
                     </a>
                 </li>
+                <div class="pcoded-navigation-label">Other</div>
                 <li class>
                     <a href="{{route('user.invites')}}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
-                            <i class="feather icon-layers"></i>
+                            <i class="feather icon-users"></i>
                         </span>
                         <span class="pcoded-mtext">Invite Friends</span>
                     </a>
@@ -104,7 +105,7 @@
                 <li class>
                     <a href="{{route('dashboard')}}" class="waves-effect waves-dark">
                         <span class="pcoded-micon">
-                            <i class="feather icon-layers"></i>
+                            <i class="feather icon-life-buoy"></i>
                         </span>
                         <span class="pcoded-mtext">Subscriptions</span>
                     </a>
