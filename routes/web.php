@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BotController;
-
+use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\ExampleComponent;
+use App\Http\Controllers\BotController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,10 +50,10 @@ Route::post('password/forgot', [ForgotPasswordController::class, 'sendResetLink'
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/reset', [ResetPasswordController::class, 'resetPassword'])->name('password.update');
 
-Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard');
 
-Route::post('/update-name', [DashboardController::class, 'updateName'])->name('user.update.name');
-Route::post('/update-password', [DashboardController::class, 'updatePassword'])->name('user.update.password');
+Route::post('/update-name', [ProfileController::class, 'updateName'])->name('user.update.name');
+Route::post('/update-password', [ProfileController::class, 'updatePassword'])->name('user.update.password');
 
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;

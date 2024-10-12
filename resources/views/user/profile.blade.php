@@ -7,11 +7,6 @@
         <div class="pcoded-inner-content">
             <div class="card name-card p-4 mt-5 mb-4">
                 <h4 class="card-title">Update Your Name</h4>
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
                 <form action="{{ route('user.update.name') }}" method="POST">
                     @csrf
                     <input type="text" name="name" class="form-control" placeholder="Your Name" value="{{ auth()->user()->name }}" required />
@@ -22,16 +17,11 @@
             <!-- Password Update Form -->
             <div class="card password-card p-4 mb-4">
                 <h4 class="card-title">Change Password</h4>
-                @if (session('danger'))
-                    <div class="alert alert-success">
-                        {{ session('danger') }}
-                    </div>
-                @endif
                 <form action="{{ route('user.update.password') }}" method="POST" id="resetForm">
                     @csrf
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <input type="password" name="old_password" class="form-control mb-2" placeholder="Old Password" required />
+                            <input type="password" name="password" class="form-control mb-2" placeholder="Old Password" required/>
                         </div>
                         <div class="col-12 col-lg-6">
                             <input type="password" name="new_password" id="new_password" class="form-control mb-2" placeholder="New Password" required />
@@ -47,7 +37,7 @@
 
         </div>
     </div>
-    <script>
+    {{-- <script>
 
         function selectExchange(exchangeName) {
           document.getElementById(
@@ -57,7 +47,7 @@
           var toast = new bootstrap.Toast(toastEl);
           toast.show();
         }
-      </script>
+      </script> --}}
     <script>
         document.getElementById('resetForm').addEventListener('submit', function(event) {
             var newPassword = document.getElementById('new_password').value;
