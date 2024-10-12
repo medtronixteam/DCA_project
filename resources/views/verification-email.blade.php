@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Email Verification</title>
+@extends('layouts.guest')
+@section('content')
     <link rel="stylesheet" href="{{url('guest/code.css')}}" />
-  </head>
-  <body>
+
     <div class="verification-container">
       <div class="verification-card">
         <h3 class="verification-title">
@@ -22,5 +17,5 @@
 
       </div>
     </div>
-  </body>
-</html>
+
+@endsection

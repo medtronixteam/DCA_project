@@ -6,6 +6,13 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    function dashboard() {
+        if (auth()->user()->role == 'admin') {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return redirect()->route('user.dashboard');
+        }
+    }
     function dashboardUser() {
         return view('user.dashboard');
     }

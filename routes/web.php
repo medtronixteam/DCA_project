@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BotController;
 
 use App\Http\Livewire\ExampleComponent;
 /*
@@ -84,5 +85,6 @@ Route::group(
         function () {
 
     Route::get('dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard');
+    Route::get('dca/bot', [BotController::class, 'index'])->name('bot.list');
 
 });
