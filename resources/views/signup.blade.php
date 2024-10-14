@@ -48,6 +48,7 @@
                                 <div class="col-12">
                                     <div class="checkbox-fade fade-in-primary">
                                         <label class="form-label">
+                                            <input type="email" name="" id="">
                                             <input type="checkbox" value>
                                             <span class="cr"><i
                                                     class="cr-icon icofont icofont-ui-check txt-primary"></i></span>

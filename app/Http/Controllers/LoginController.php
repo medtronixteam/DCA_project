@@ -16,10 +16,14 @@ class LoginController extends Controller
         }
         return view('login');
     }
-    public function signup(){
+    public function signup(Request $request){
 
         if (Auth::check()) {
             return redirect()->route('dashboard');
+        }
+        if($request->has('ref')){
+            $referId=$request->ref;
+            $request->session()->put('referId', $referId);
         }
         return view('signup');
     }
@@ -67,19 +71,23 @@ class LoginController extends Controller
 
         if($validatedData){
             $validatedData["password"] = Hash::make($validatedData["password"]);
-
+            $referId=null;
+            if(session()->has('referId')){
+                $referId=session()->get('referId');
+            }
            $user= User::create([
 
                 "password" =>  $validatedData["password"],
                 "name" =>  $validatedData["name"],
                 "email" =>  $validatedData["email"],
                 "status" =>  1,
+                "invited_by" => $referId,
 
             ]);
             Auth::login($user);
-            $user->sendEmailVerificationNotification();
+         //   $user->sendEmailVerificationNotification();
             flashy()->success('Account has been Created Login Here', '#');
-            return redirect()->route('verifyEmail')->with('success', 'Registered Successful!');
+            return redirect()->route('dashboard')->with('success', 'Registered Successful!');
 
         }
 
