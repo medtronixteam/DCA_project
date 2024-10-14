@@ -1,5 +1,6 @@
 @extends('layouts.guest')
 @section('content')
+
 <section class="login-block">
 
     <div class="container-fluid" style="background-color: black">
