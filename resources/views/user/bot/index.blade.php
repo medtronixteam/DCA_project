@@ -1,18 +1,29 @@
 @extends('layouts.user')
 @section('content')
-<style>
-.form-select {
-    appearance: none; /* Remove default arrow */
-    background: #263544 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23ffffff" height="8" width="8" viewBox="0 0 16 16"><path d="M1 4h14L8 11 1 4z"/></svg>') no-repeat right 10px center;
-    background-size: 12px;
-    color: white;
-}
+    <style>
+        .form-control,
+        .form-select {
+            background-color: white;
+            color: black;
+            border: 1px solid #737988;
+        }
 
-.form-select:focus {
-    border-color: #ffffff;
-}
+        .form-control::placeholder {
+            color: #737988;
+        }
 
-</style>
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #263544;
+            outline: none;
+        }
+        /* .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 50px;
+    z-index: 1;
+} */
+    </style>
     <div class="pcoded-content">
 
         <div class="page-header card">
@@ -21,27 +32,25 @@
         <div class="pcoded-inner-content">
             <div class="row">
                 <div class="col-12 col-lg-8 col-md-6">
-                    <div class="card"style="background-color: #263544; color: #ffffff;">
+                    <div class="card"style="background-color: #white; color: #black;">
                         <div class="card-body">
                             <h2 class="card-title font-weight-bolder">Create New DCA Bot</h2>
                             <div class="card custom-card mt-4 rounded-3"
-                                style="background-color: #263544; color: #ffffff; border: 1px solid #737988;"style="background-color: #263544; color: #ffffff;">
+                                style="background-color: white; color: black; border: 1px solid #737988;">
                                 <div class="card-body">
                                     <h5 class="card-title">Main settings</h5>
                                     <hr>
                                     <form>
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Name</label>
-                                            <input type="text"
-                                                class="form-control bg-dark border-0 rounded-3 text-white" style="padding: 11px"
+                                            <input type="text" class="form-control rounded-3" style="padding: 11px"
                                                 id="name" placeholder="Name">
                                         </div>
 
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="exchange" class="form-label">Exchange</label>
-                                                <select id="exchange"
-                                                    class="form-select  bg-dark border-0 rounded-2 text-white" style="padding: 11px">
+                                                <select id="exchange" class="form-select rounded-3" style="padding: 11px">
                                                     <option selected>Select...</option>
                                                     <option value="1">Exchange 1</option>
                                                     <option value="2">Exchange 2</option>
@@ -50,8 +59,7 @@
 
                                             <div class="col-md-6 mb-3">
                                                 <label for="bot-type" class="form-label">Bot type</label>
-                                                <select id="bot-type"
-                                                    class="form-select  bg-dark border-0 rounded-2 text-white" style="padding: 11px">
+                                                <select id="bot-type" class="form-select rounded-3" style="padding: 11px">
                                                     <option selected>Select...</option>
                                                     <option value="1">Type 1</option>
                                                     <option value="2">Type 2</option>
@@ -61,8 +69,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="card custom-card mt-2 rounded-3"
-                                style="background-color: #263544; color: #ffffff; border: 1px solid #737988;"style="background-color: #263544; color: #ffffff;">
+                            <div class="card custom-card mt-2 rounded-3" style="border: 1px solid #737988;">
                                 <div class="card-body">
                                     <h5 class="card-title">Currency Pairs</h5>
                                     <hr>
@@ -70,8 +77,7 @@
                                         <div class="row">
                                             <div class="col-md-12 mb-3">
                                                 <label for="exchange" class="form-label">Currency Pairs</label>
-                                                <select id="exchange"
-                                                    class="form-select  bg-dark border-0 rounded-2 text-white" style="padding: 11px">
+                                                <select id="exchange" class="form-select rounded-3" style="padding: 11px">
                                                     <option selected>Select...</option>
                                                     <option value="1">Exchange 1</option>
                                                     <option value="2">Exchange 2</option>
@@ -81,24 +87,20 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="card custom-card rounded-3"
-                                style="background-color: #263544; color: #ffffff; border: 1px solid #737988;"style="background-color: #263544; color: #ffffff;">
+                            <div class="card custom-card rounded-3" style="border: 1px solid #737988;">
                                 <div class="card-body">
                                     <h5 class="card-title">Price settings</h5>
                                     <hr>
                                     <form>
                                         <div class="mb-3">
                                             <label for="name" class="form-label">Base order size</label>
-                                            <input type="number"
-                                                class="form-control bg-dark border-0 rounded-3 text-white" style="padding: 11px"
-                                                id="name" placeholder="Name">
+                                            <input type="number" class="form-control rounded-3" style="padding: 11px"
+                                                id="name" placeholder="Order size">
                                         </div>
-
                                         <div class="row">
                                             <div class="col-md-4 mb-3">
                                                 <label for="exchange" class="form-label">Safety order type</label>
-                                                <select id="exchange"
-                                                    class="form-select  bg-dark border-0 rounded-2 text-white" style="padding: 11px">
+                                                <select id="exchange" class="form-select rounded-3" style="padding: 11px">
                                                     <option selected>Select...</option>
                                                     <option value="1">Exchange 1</option>
                                                     <option value="2">Exchange 2</option>
@@ -106,22 +108,19 @@
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <label for="exchange" class="form-label">Max safety order</label>
-                                                <input type="number"
-                                                class="form-control bg-dark border-0 rounded-3 text-white" style="padding: 11px"
-                                                id="name" placeholder="Name">
+                                                <input type="number" class="form-control rounded-3" style="padding: 11px"
+                                                    id="name" placeholder="Max safety">
                                             </div>
                                             <div class="col-md-4 mb-3">
                                                 <label for="exchange" class="form-label">Max active safety order</label>
-                                                <input type="number"
-                                                class="form-control bg-dark border-0 rounded-3 text-white" style="padding: 11px"
-                                                id="name" placeholder="Name">
+                                                <input type="number" class="form-control rounded-3" style="padding: 11px"
+                                                    id="name" placeholder="Max active">
                                             </div>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <div class="card custom-card rounded-3"
-                                style="background-color: #263544; color: #ffffff; border: 1px solid #737988;"style="background-color: #263544; color: #ffffff;">
+                            <div class="card custom-card rounded-3" style="border: 1px solid #737988;">
                                 <div class="card-body">
                                     <h5 class="card-title">Profit</h5>
                                     <hr>
@@ -129,18 +128,17 @@
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="name" class="form-label">Take profit</label>
-                                            <input type="number"
-                                                class="form-control bg-dark border-0 rounded-3 text-white" style="padding: 11px"
-                                                id="name">
+                                                <input type="number" class="form-control rounded-3" style="padding: 11px"
+                                                    id="name" placeholder="Profit">
                                             </div>
                                             <div class="col-md-6 mb-3">
-                                                    <label for="exchange" class="form-label">Take profit type</label>
-                                                    <select id="exchange"
-                                                        class="form-select  bg-dark border-0 rounded-2 text-white" style="padding: 11px">
-                                                        <option selected>Select...</option>
-                                                        <option value="1">Exchange 1</option>
-                                                        <option value="2">Exchange 2</option>
-                                                    </select>
+                                                <label for="exchange" class="form-label">Take profit type</label>
+                                                <select id="exchange" class="form-select rounded-2"
+                                                    style="padding: 11px">
+                                                    <option selected>Select...</option>
+                                                    <option value="1">Exchange 1</option>
+                                                    <option value="2">Exchange 2</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </form>
@@ -149,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4 col-md-6">
+                <div class="col-12 col-lg-4 col-md-6 visible sticky">
                     <div class="card p-3" style="background-color: #263544; color: #ffffff;">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -169,7 +167,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
