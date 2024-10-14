@@ -46,7 +46,6 @@
 
             <div class="col-sm-6">
                 <div class="row">
-
                     <div class="col-sm-12">
                         <div class="alert alert-info background-info alert-dismissible">
                            Welcome to Trox Pi.
