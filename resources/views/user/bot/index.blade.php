@@ -20,7 +20,7 @@
         .sticky {
             position: fixed;
             position: -webkit-sticky;
-    top: 126px;
+    top: 134px;
     z-index: 10;
 }
     </style>
@@ -162,7 +162,7 @@
                                 <h5 class="card-title">Max safety order price deviation</h5>
                                 <p class="card-text text-white mb-0">NaN%</p>
                             </div>
-                            <button class="btn btn-danger w-100 py-2 rounded-pill">Save</button>
+                            <button class="btn w-100 py-2 rounded-pill text-white" style="background-color: #737988">Save</button>
                         </div>
                     </div>
                 </div>

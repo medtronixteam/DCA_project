@@ -26,4 +26,9 @@ $dayLeft = Carbon::now()->diffInDays($createdAt);
         return view('admin.dashboard');
     }
 
+   public function list(){
+    $users=User::all();
+    return view('admin.list', compact('users') );
+   }
+
 }
