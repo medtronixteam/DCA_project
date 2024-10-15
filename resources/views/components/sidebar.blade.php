@@ -104,7 +104,7 @@
                 </a>
             </li>
             <li class>
-                <a href="{{route('dashboard')}}" class="waves-effect waves-dark">
+                <a href="{{route('user.subscriptions')}}" class="waves-effect waves-dark">
                     <span class="pcoded-micon">
                         <i class="feather icon-life-buoy"></i>
                     </span>
@@ -123,11 +123,20 @@
             <li class=''>
                 <a href="{{route('admin.user.list')}}" class="waves-effect waves-dark">
                     <span class="pcoded-micon">
-                        <i class="feather icon-layers"></i>
+                        <i class="feather icon-users"></i>
                     </span>
                     <span class="pcoded-mtext">User List</span>
                 </a>
             </li>
+            <li class=''>
+                <a href="{{route('admin.plan')}}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                        <i class="feather icon-file-text"></i>
+                    </span>
+                    <span class="pcoded-mtext">Plans</span>
+                </a>
+            </li>
+
              @endif
                  {{-- <li class="pcoded-hasmenu">
                     <a href="javascript:void(0)" class="waves-effect waves-dark">
