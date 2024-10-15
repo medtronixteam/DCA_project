@@ -16,7 +16,7 @@ class LoginController extends Controller
         }
         return view('login');
     }
-    public function signup(Request $request){
+        public function signup(Request $request){
 
         if (Auth::check()) {
             return redirect()->route('dashboard');

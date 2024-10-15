@@ -1,13 +1,15 @@
-@extends('layouts.user')
+@extends('layouts.admin')
 @section('content')
 <link rel="stylesheet" href="{{ url('admin/assets/css/font-awesome-n.min.css') }}">
 <link rel="stylesheet" href="{{ url('admin/assets/css/widget.css') }}">
 <div class="pcoded-content">
 
     <div class="page-header card">
+        <h1>Admin dashboard</h1>
+
     </div>
 
-    <div class="pcoded-inner-content">
+    {{-- <div class="pcoded-inner-content">
         <div class="row">
             <div class="col-sm-6">
                 <div class="row">
@@ -70,6 +72,6 @@
             </div>
         </div>
 
-    </div>
+    </div> --}}
 </div>
 @endsection

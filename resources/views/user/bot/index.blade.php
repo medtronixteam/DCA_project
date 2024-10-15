@@ -17,12 +17,12 @@
             border-color: #263544;
             outline: none;
         }
-        /* .sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 50px;
-    z-index: 1;
-} */
+        .sticky {
+            position: fixed;
+            position: -webkit-sticky;
+    top: 134px;
+    z-index: 10;
+}
     </style>
     <div class="pcoded-content">
 
@@ -147,8 +147,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-4 col-md-6 visible sticky">
-                    <div class="card p-3" style="background-color: #263544; color: #ffffff;">
+                <div class="col-12 col-lg-4 col-md-6 visible vh-100 ">
+                    <div class="card p-3 sticky" style="background-color: #263544; color: #ffffff;">
                         <div class="card-body">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <h5 class="card-title">Balance</h5>
@@ -162,7 +162,7 @@
                                 <h5 class="card-title">Max safety order price deviation</h5>
                                 <p class="card-text text-white mb-0">NaN%</p>
                             </div>
-                            <button class="btn btn-danger w-100 py-2 rounded-pill">Save</button>
+                            <button class="btn w-100 py-2 rounded-pill text-white" style="background-color: #737988">Save</button>
                         </div>
                     </div>
                 </div>

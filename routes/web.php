@@ -80,6 +80,7 @@ Route::group(
     function () {
 
         Route::get('dashboard', [DashboardController::class, 'dashboardAdmin'])->name('dashboard');
+        Route::get('/user-list', [DashboardController::class, 'list'])->name('user.list');
 
 
     });
