@@ -5,7 +5,6 @@
     <div class="container-fluid" style="background-color: black">
         <div class="row">
             <div class="col-sm-12">
-
                 <form class="md-float-material form-material" action="{{route('signup.store')}}" method="post">
                     <div class="text-center">
 
@@ -48,7 +47,6 @@
                                 <div class="col-12">
                                     <div class="checkbox-fade fade-in-primary">
                                         <label class="form-label">
-                                            <input type="email" name="" id="">
                                             <input type="checkbox" value>
                                             <span class="cr"><i
                                                     class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
