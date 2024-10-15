@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trox-PI</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div>
+      <nav
+        class="navbar fixed-top navbar-expand-lg bg-white shadow-sm align-items-center">
+        <div class="container-fluid">
+          <!-- =================== LOGO ==================== -->
+          <div
+            class="trox-logo d-flex justify-content-between align-items-center">
+            <a href="/">
+              <h2 style="font-weight: 700">TROX PI</h2>
+            </a>
+          </div>
+
+          <!-- =================== TOGGLE BUTTON ===================== -->
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            onclick="toggleNavbar()">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- =================== ITEMS LIST ===================== -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  href="/tradingbots"
+                  class="nav-link"
+                  onclick="handleNavLinkClick()"
+                  >Trading Bots</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="/plan" class="nav-link" onclick="handleNavLinkClick()"
+                  >Plans</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/features"
+                  class="nav-link"
+                  onclick="handleNavLinkClick()"
+                  >Features</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/developers"
+                  class="nav-link"
+                  onclick="handleNavLinkClick()"
+                  >Developers</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/pricecharts"
+                  class="nav-link"
+                  onclick="handleNavLinkClick()"
+                  >Price Charts</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/company"
+                  class="nav-link"
+                  onclick="handleNavLinkClick()"
+                  >Company</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  href="/academy"
+                  class="nav-link"
+                  onclick="handleNavLinkClick()"
+                  >Academy</a
+                >
+              </li>
+            </ul>
+            <!-- =================== BUTTONS ===================== -->
+            <div class="d-flex justify-content-between">
+              <div class="Sign-in-text d-flex align-items-center">
+                <li>Sign In</li>
+              </div>
+              <button onclick="handleSignupNavigate()" class="btn purple-btn">
+                Try It Free
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- Banner Section Start -->
+    <div class="banner-section">
+      <div class="container-fluid p-40">
+        <div class="row">
+          <!-- Text Section -->
+          <div
+            class="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-center align-items-center">
+            <div class="text-box">
+              <h1 class="mb-4" style="font-weight: 600">
+                Introducing Your Ultimate Crypto Trading Bots
+              </h1>
+              <p class="mb-4">
+                Grow Your Portfolio Effortlessly: Harness the Power of Expertly
+                Engineered Automated Bots that Combine Elite Trader Performance
+                with New User Simplicity, Even While You Sleep.
+              </p>
+              <button class="btn purple-btn">Get Free Trial</button>
+            </div>
+          </div>
+
+          <!-- Image Section -->
+          <div class="col-sm-12 col-md-7 col-lg-7">
+            <div class="img-container">
+              <img
+                class="img-fluid img-zoom"
+                src="images/Banner.jpg"
+                alt="Banner" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Banner Section End -->
+    <!-- TROX PI Section Start -->
+    <div>
+      <div class="container-fluid p-40">
+        <h2 class="troxpi-heading">
+          TROX PI Empowers Traders to Succeed in Any Market Condition
+        </h2>
+        <p class="troxpi-subheading">
+          For every market condition, there's a winning strategy. TROX PI trade
+          bots excel at reducing average acquisition costs, boosting your profit
+          margins with every trade.
+        </p>
+        <div class="row">
+          <div class="col-md-4 troxpi-box">
+            <h3 class="troxpi-arrow">
+              <span class="me-3"><i class="fa-solid fa-arrow-right"></i></span>
+              Bear Markets
+            </h3>
+            <p>
+              Utilize DCA Short bots to borrow and sell tokens at the current
+              price, then buy them back at a lower price to maximize your
+              profits.
+            </p>
+          </div>
+          <div class="col-md-4 troxpi-box">
+            <h3 class="troxpi-arrow">
+              <span class="me-3"><i class="fa-solid fa-arrow-right"></i></span>
+              Bull Markets
+            </h3>
+            <p>
+              Leverage DCA Long bots to buy during natural dips and sell during
+              spikes as the price rises over time, ensuring a better average
+              entry price for your positions.
+            </p>
+          </div>
+          <div class="col-md-4 troxpi-box">
+            <h3 class="troxpi-arrow">
+              <span class="me-3"><i class="fa-solid fa-arrow-right"></i></span>
+              Bear Markets
+            </h3>
+            <p>
+              Utilize Grid bots to acquire tokens at support levels and sell
+              them near resistance levels, optimizing your trading strategy for
+              maximum profit.
+            </p>
+          </div>
+        </div>
+
+        <div class="troxpi-glimpse">
+          <p class="mb-4">
+            This is just a glimpse of the countless opportunities you can unlock
+            by leveraging the power of TROX PI trading software.
+          </p>
+          <button class="btn purple-btn">Get Free Trial</button>
+        </div>
+      </div>
+    </div>
+    <!-- TROX PI Section End -->
+    <!-- CardBox Section Start -->
+    <div class="container-fluid p-40">
+      <div class="row">
+        <!-- First Card -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow">
+            <div class="card-body">
+              <h4 class="card-title mb-3">Experience smart trading</h4>
+              <p class="card-text mb-4">
+                Unlock the power of SmartTrade and Terminal: set your trades in
+                advance with custom triggers, then sit back and relax... Trox pi
+                will handle the rest.
+              </p>
+              <button class="btn purple-btn">Sign Up</button>
+              <img src="images/card1.png" alt="Icon" class="card-icon" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Card -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow">
+            <div class="card-body">
+              <h4 class="card-title mb-3">Track Your Performance</h4>
+              <p class="card-text mb-4">
+                Keep your investments in one place, not all over the place.
+                Collect all your assets in one portfolio: connect exchanges and
+                wallets, as well as create your own accounts for your favorite
+                tokens and coins.
+              </p>
+              <button class="btn purple-btn">Create Your Portfolio</button>
+              <img src="images/card2.png" alt="Icon" class="card-icon" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Card -->
+        <div class="col-md-6 d-flex m-auto">
+          <div class="card shadow">
+            <div class="card-body">
+              <h4 class="card-title mb-3">Bot Presets</h4>
+              <p class="card-text mb-4">
+                Not sure where to start? Copy the presets from other seasoned
+                traders and skip the learning curve.
+              </p>
+              <button class="btn purple-btn">Select a Trading Bot</button>
+              <img src="images/card3.png" alt="Icon" class="card-icon" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CardBox Section End -->
+    <!-- CardsPerfectTool Section Start -->
+    <div class="container-fluid p-40">
+      <div class="row">
+        <h2 class="heading mb-5">The Perfect Tools for Any Market</h2>
+
+        <!-- Card 1 -->
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-5">
+          <div class="custom-card">
+            <img class="custom-card-icon" src="images/c-lock.png" alt="Icon" />
+            <div class="custom-card-body">
+              <h4 class="custom-card-title mb-3">Security</h4>
+              <p class="custom-card-text mb-0">
+                TROX PI ensures secure interaction with exchanges using API
+                keys, Fast Connect, and IP whitelisting for robust protection.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-5">
+          <div class="custom-card">
+            <img
+              class="custom-card-icon"
+              src="images/c-automated.png"
+              alt="Icon" />
+            <div class="custom-card-body">
+              <h4 class="custom-card-title mb-3">Trade Automation</h4>
+              <p class="custom-card-text mb-0">
+                Our DCA, Grid, and Futures bots are proven performers, executing
+                your trading strategy at scale. The market never sleeps, and
+                neither do our bots.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-5">
+          <div class="custom-card">
+            <img class="custom-card-icon" src="images/c-chart.png" alt="Icon" />
+            <div class="custom-card-body">
+              <h4 class="custom-card-title mb-3">Analytics</h4>
+              <p class="custom-card-text mb-0">
+                TROX PI's dashboards provide real-time insights into your trade
+                performance, helping you know when to optimize and when to let
+                them run.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CardsPerfectTool Section End -->
+    <!-- StartTrading Section Start -->
+    <div class="container-fluid p-40">
+      <div class="trading-box">
+        <div class="row">
+          <div class="col-sm-12 col-md-8 col-lg-9">
+            <h2 class="trading-heading">Start Trading on TROX PI Today</h2>
+            <p class="trading-text">
+              Get 14 days trial with full-access to all TROX PI trading tools.
+            </p>
+          </div>
+          <div
+            class="col-sm-12 col-md-4 col-lg-3 d-flex align-items-center justify-content-md-end">
+            <button class="btn white-btn">Get Free Trial</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- StartTrading Section End -->
+    <!-- TroxFeatures Section Start -->
+    <div class="section-six">
+      <div class="container-fluid">
+        <h2 class="features-heading mb-4">TROX PI Features</h2>
+
+        <!-- First Row of Features -->
+        <div class="row text-center">
+          <div class="col-md-4">
+            <div class="feature-box">
+              <div class="icon-outer">
+                <img
+                  class="feature-icon"
+                  src="images/d-stable.png"
+                  alt="Rebalancer Icon" />
+              </div>
+              <h4 class="feature-box-heading">Rebalancer</h4>
+              <p class="feature-box-text">
+                Create portfolios with any coin allocation and rebalance your
+                account with a click.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <div class="icon-outer">
+                <img
+                  class="feature-icon"
+                  src="images/d-dashboard.png"
+                  alt="Dashboard Icon" />
+              </div>
+              <h4 class="feature-box-heading">Dashboard</h4>
+              <p class="feature-box-text">
+                Add multiple accounts to track your portfolio and check your
+                daily PnL.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <div class="icon-outer">
+                <img
+                  class="feature-icon"
+                  src="images/d-accounting.png"
+                  alt="Demo Account Icon" />
+              </div>
+              <h4 class="feature-box-heading">Demo Account</h4>
+              <p class="feature-box-text">
+                Trade without money. Test strategies safely and without any
+                risk.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Row of Features -->
+        <div class="row d-flex justify-content-center text-center">
+          <div class="col-md-4">
+            <div class="feature-box">
+              <div class="icon-outer">
+                <img
+                  class="feature-icon"
+                  src="images/d-exchange.png"
+                  alt="Smart Cover Icon" />
+              </div>
+              <h4 class="feature-box-heading">Smart Cover</h4>
+              <p class="feature-box-text">
+                Accrue additional assets with unexpected market moves. Sell and
+                buy back coins.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-box">
+              <div class="icon-outer">
+                <img
+                  class="feature-icon"
+                  src="images/d-wave.png"
+                  alt="Signals Icon" />
+              </div>
+              <h4 class="feature-box-heading">Signals</h4>
+              <p class="feature-box-text">
+                Subscribe to signals provided by other traders to copy
+                strategies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TroxFeatures Section End -->
+    <!-- ManagePositions Section Start -->
+    <div class="section-seven p-40">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Left Content -->
+          <div
+            class="col-sm-12 col-md-6 col-lg-7 d-flex m-auto align-content-center p-0">
+            <div class="manage-box">
+              <h1 class="manage-heading">
+                Manage Your Positions in One Tap With the TROX PI Mobile App
+              </h1>
+              <p class="manage-text mb-4">
+                Download the mobile application, track strategy statistics,
+                launch bots, and close orders. Whether you're at home or on the
+                road, manage your positions anywhere.
+              </p>
+              <div class="manage-buttons">
+                <!-- App Store Button -->
+                <a href="#" class="btn custom-btn me-4">
+                  <i class="fab fa-apple" style="font-size: 28px"></i>
+                  <div class="text-container">
+                    <span class="span-text">Download on the</span>
+                    <h4 class="button-text">App Store</h4>
+                  </div>
+                </a>
+
+                <!-- Google Play Button -->
+                <a href="#" class="btn custom-btn">
+                  <i class="fab fa-google-play" style="font-size: 28px"></i>
+                  <div class="text-container">
+                    <span class="span-text">Download on the</span>
+                    <h4 class="button-text">Google Play</h4>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Image -->
+          <div
+            class="col-sm-12 col-md-6 col-lg-5 d-flex align-content-center m-auto">
+            <div class="img-mobile-container">
+              <img
+                class="img-fluid img-mobile-zoom"
+                src="images/mobile.png"
+                alt="mobile" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ManagePositions Section End -->
+    <!-- Exchanges Section Start -->
+    <div class="exchanges p-40">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Heading -->
+          <div class="col-12 text-center p-0">
+            <h2 class="exchnage-heading mb-4">
+              Automated trading tools are supported on 14 major cryptocurrency
+              exchanges
+            </h2>
+          </div>
+
+          <!-- Image and Button -->
+          <div class="col-12 p-0 text-center">
+            <img
+              class="img-fluid mb-4"
+              src="images/exchnages.png"
+              alt="Exchanges" />
+            <a
+              href="#"
+              class="btn purple-btn d-flex m-auto"
+              style="width: 170px; color: white; text-align: center"
+              >Get Free Trial</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Exchanges Section End -->
+    <!-- Footer Section Start -->
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Logo Section -->
+          <div
+            class="col-lg-3 col-md-3 col-12 d-flex justify-content-sm-start justify-content-lg-center justify-content-md-center align-items-center mb-4">
+            <a href="/">
+              <h2 class="footer-logo">TROX PI</h2>
+            </a>
+          </div>
+
+          <!-- Company Links -->
+          <div class="col-lg-2 col-md-2 col-6 mb-4">
+            <h5 class="footer-title">Company</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">About Us</a></li>
+              <li><a href="#" class="footer-link">Contact Us</a></li>
+              <li><a href="#" class="footer-link">Plans</a></li>
+              <li><a href="#" class="footer-link">Reviews</a></li>
+              <li><a href="#" class="footer-link">Price Charts</a></li>
+              <li><a href="#" class="footer-link">Site Map</a></li>
+              <li><a href="#" class="footer-link">FAQs</a></li>
+            </ul>
+          </div>
+
+          <!-- Features Links -->
+          <div class="col-lg-2 col-md-2 col-6 mb-4">
+            <h5 class="footer-title">Features</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">Dashboard</a></li>
+              <li><a href="#" class="footer-link">Rebalancer</a></li>
+              <li><a href="#" class="footer-link">Demo Account</a></li>
+              <li><a href="#" class="footer-link">Smart Cover</a></li>
+              <li><a href="#" class="footer-link">Signals</a></li>
+              <li><a href="#" class="footer-link">Smart Trade</a></li>
+            </ul>
+          </div>
+
+          <!-- Trading Bots Links -->
+          <div class="col-lg-2 col-md-2 col-6 mb-4">
+            <h5 class="footer-title">Trading Bots</h5>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">GRID Bot</a></li>
+              <li><a href="#" class="footer-link">DCA Bot</a></li>
+              <li><a href="#" class="footer-link">Signal Bot</a></li>
+            </ul>
+          </div>
+
+          <!-- Mobile App Download Section -->
+          <div class="col-lg-3 col-md-3 col-6">
+            <h5 class="footer-title mb-4">Download Our Mobile App</h5>
+            <div class="download-buttons">
+              <a href="#" class="btn footer-btn">
+                <i class="fas fa-apple" style="width: 20px; height: 20px"></i>
+                <div class="footer-text-container">
+                  <span class="footer-span-text">Download on the</span>
+                  <h4 class="footer-button-text">App Store</h4>
+                </div>
+              </a>
+              <a href="#" class="btn footer-btn">
+                <i
+                  class="fas fa-google-play"
+                  style="width: 20px; height: 20px"></i>
+                <div class="footer-text-container">
+                  <span class="footer-span-text">Download on the</span>
+                  <h4 class="footer-button-text">Google Play</h4>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <p class="footer-last-text mb-0">© 2024 TROX PI All Rights Reserved.</p>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Add Bootstrap and JS libraries for functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
