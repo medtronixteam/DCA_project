@@ -52,11 +52,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-4 col-md-6">
-                    <div class="card p-4 rounded" style="height:285px; background-color:red;">
+                    <div class="card p-4 rounded" style="height:285px; background-color:rgb(14, 13, 13); color:white;">
                         <h5 class="card-title">Free</h5>
                         <h3 class="fw-bold mb-2">$0/month</h3>
-                        <p class="text-muted">Free of cost</p>
-                        <button class="btn custom" style="margin-top: 65px;">Active Plan</button>
+                        <p class="">Free of cost</p>
+                        <button class="btn custom text-white rounded-2" style="margin-top: 65px; border: 1px solid #737988">Active Plan</button>
                     </div>
                 </div>
                 <div class="col-12 col-lg-4 col-md-6">
@@ -69,7 +69,7 @@
                             <input type="hidden" value="pro" name="name">
                             <input type="hidden" value="month" name="duration">
                             <input name="price" class="p-1 my-3 rounded-2" type="number" placeholder="Change price here" id="pro-price-1" data-plan-id="1" required>
-                            <button type="submit" class="btn mb-3 custom change-price-button">Change Price</button>
+                            <button type="submit" class="btn mb-3 custom change-price-button rounded-2">Change Price</button>
                         </form>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                             <input type="hidden" value="expert" name="name">
                             <input type="hidden" value="month" name="duration">
                             <input name="price" class="p-1 my-3 rounded-2" type="number" placeholder="Change price here" id="expert-price" data-plan-id="2" required>
-                            <button type="submit" class="btn mb-3 custom change-price-button">Change Price</button>
+                            <button type="submit" class="btn mb-3 custom change-price-button rounded-2">Change Price</button>
                         </form>
                     </div>
                 </div>
