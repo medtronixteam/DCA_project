@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\ExampleComponent;
 use App\Http\Controllers\BotController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\MainController;
 use App\Http\Controllers\InviteController;
 /*
 |--------------------------------------------------------------------------
@@ -81,9 +82,12 @@ Route::group(
     function () {
 
         Route::get('dashboard', [DashboardController::class, 'dashboardAdmin'])->name('dashboard');
-        Route::get('/user-list', [DashboardController::class, 'list'])->name('user.list');
+        Route::get('/user-list', [MainController::class, 'listUser'])->name('user.list');
         Route::get('/plans-manage', [PlanController::class, 'manage'])->name('plan');
         Route::post('/plans/change-price', [PlanController::class, 'changePrice'])->name('plans.change-price');
+        Route::post('users/disable/{id}', [MainController::class, 'disable'])->name('users.disable');
+        Route::post('users/enable/{id}', [MainController::class, 'enable'])->name('users.enable');
+        Route::post('users/delete/{id}', [MainController::class, 'delete'])->name('users.delete');
     });
 
  Route::group(
@@ -92,7 +96,7 @@ Route::group(
 
     Route::get('dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard');
     Route::get('dca/bot', [BotController::class, 'index'])->name('bot.list');
-    Route::get('subscription', [BotController::class, 'list'])->name('subscriptions');
+    Route::get('subscription', [MainController::class, 'listPlan'])->name('subscriptions');
     Route::get('invite/friends', [InviteController::class, 'index'])->name('invites');
 
 });

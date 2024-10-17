@@ -9,8 +9,5 @@ class BotController extends Controller
     function index() {
         return view('user.bot.index');
     }
-    function list() {
-        $plans=Plan::all();
-        return view('user.subscription',compact('plans'));
-    }
+   
 }
