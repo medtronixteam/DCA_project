@@ -8,13 +8,9 @@
     <div class="pcoded-content">
 
         <div class="page-header card">
-            <h1>CHAT BOX</h1>
         </div>
 
-        <div class="pcoded-inner-content">
-            <div class="d-flex">
-                <div class="sidebar"></div>
-
+        <div class="pcoded-inner-co
                 <!-- Main content -->
                 <div class="flex-grow-1">
                     <!-- Header -->
