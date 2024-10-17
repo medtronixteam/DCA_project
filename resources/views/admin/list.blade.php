@@ -6,9 +6,9 @@
 <div class="pcoded-content">
 
    <div class="row p-lg-5 p-2">
-    <div class="col-12 col-lg-12 col-md-12 py-5 p-2 ms-lg-2">
+    <div class="col-12 col-lg-12 col-md-12 py-2 p-2 ms-lg-2">
         <div class="card shadow-sm">
-            <div class="card-header bg-secondary text-white">
+            <div class="card-header bg-black text-white">
                 <h1 class="mb-0">User List</h1>
             </div>
             <div class="card-body">
@@ -36,6 +36,5 @@
         </div>
     </div>
    </div>
-
 </div>
 @endsection
