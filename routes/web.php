@@ -112,7 +112,7 @@ Route::post('/payment/usdt/check', [PaymentController::class, 'checkUSDTDepositS
 });
 
 use App\Http\Controllers\SubscriptionController;
-Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
+//Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
 Route::post('/subscription/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscription.subscribe');
 Route::get('/subscription/confirm-payment', [SubscriptionController::class, 'confirmPayment'])->name('subscription.confirm');
 Route::get('/subscription/success', function () {
