@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .sidebar {
+    background-color: #5a47ab;
+    width: 70px;
+  }
+  .chat-header {
+    border-bottom: 1px solid #ddd;
+  }
+  .chat-list {
+    border-right: 1px solid #ddd;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+  .chat-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 2px solid #ddd;
+  }
+  .chat-item:hover {
+    background-color: #f0f0f0;
+  }
+  .chat-item img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .chat-content {
+    padding: 15px;
+    overflow-y: auto;
+    height: calc(100vh - 203px);
+  }
+  .message {
+    margin-bottom: 15px;
+  }
+  .message p {
+    background-color: #e4e6eb;
+    padding: 10px 15px;
+    border-radius: 10px;
+  }
+  .message.sent p {
+    background-color: #4a4ae6;
+    color: #ffffff;
+    margin-left: auto;
+  }
+  .message img {
+    height: 35px;
+    border-radius: 50%;
+    margin: 0 10px;
+  }
+  .chat-input {
+    display: flex;
+    align-items: center;
+    width: 73%;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+
+  .chat-input input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    font-size: 16px;
+    background-color: transparent;
+  }
+
+  .chat-input .icon {
+    margin: 0 10px;
+    color: #aaa;
+  }
+
+  .chat-input .send-btn {
+    background-color: #ee6237f1;
+    border: none;
+    padding: 10px 12px;
+    color: white;
+    border-radius: 20px;
+  }
+
+  .menu-btn {
+    display: none;
+    margin-left: 10px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: #000;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  /* @media (max-width >= 1240px){
+    .chat-input{
+      width: 62%;
+    }
+  } */
+  @media (max-width: 1240px){
+    .chat-input{
+      width: 72%;
+    }
+  }
+  @media (max-width: 996px) {
+    .sidebar {
+      width: 10px;
+    }
+    .chat-input{
+      width: 70%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .side_menu {
+      position: fixed;
+      top: 0;
+      left: -500px;
+      height: 98%;
+      width: 250px;
+      background-color: #fff;
+      transition: left 0.3s ease;
+      z-index: 1050;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+    .menu-btn {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .chat-input{
+      width: 100%;
+    }
+  }
+
+
+

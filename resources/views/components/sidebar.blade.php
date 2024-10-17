@@ -136,6 +136,14 @@
                     <span class="pcoded-mtext">Plans</span>
                 </a>
             </li>
+            <li class=''>
+                <a href="{{route('admin.chatbox')}}" class="waves-effect waves-dark">
+                    <span class="pcoded-micon">
+                        <i class="feather icon-file-text"></i>
+                    </span>
+                    <span class="pcoded-mtext">Chat</span>
+                </a>
+            </li>
 
              @endif
                  {{-- <li class="pcoded-hasmenu">

@@ -42,4 +42,7 @@ class MainController extends Controller
            flashy()->info('User deleted successfully', '#');
            return back();
        }
+       public function chatbox(){
+        return view('admin.chat');
+       }
    }

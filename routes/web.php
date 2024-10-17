@@ -84,6 +84,7 @@ Route::group(
         Route::get('dashboard', [DashboardController::class, 'dashboardAdmin'])->name('dashboard');
         Route::get('/user-list', [MainController::class, 'listUser'])->name('user.list');
         Route::get('/plans-manage', [PlanController::class, 'manage'])->name('plan');
+        Route::get('/chat-box', [MainController::class, 'chatbox'])->name('chatbox');
         Route::post('/plans/change-price', [PlanController::class, 'changePrice'])->name('plans.change-price');
         Route::post('users/disable/{id}', [MainController::class, 'disable'])->name('users.disable');
         Route::post('users/enable/{id}', [MainController::class, 'enable'])->name('users.enable');
