@@ -89,7 +89,8 @@
                         </ul>
                     </div>
                 </li> --}}
-                <li class="header-notification">
+               <a href="{{route('admin.chatbox')}}">
+                <li  class="header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="displayChatbox dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="feather icon-message-square"></i>
@@ -97,6 +98,7 @@
                         </div>
                     </div>
                 </li>
+               </a>
                 <li class="user-profile header-notification">
                     <div class="dropdown-primary dropdown">
                         <div class="dropdown-toggle" data-bs-toggle="dropdown">
