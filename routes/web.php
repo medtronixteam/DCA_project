@@ -8,6 +8,8 @@ use App\Http\Livewire\ExampleComponent;
 use App\Http\Controllers\BotController;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\InviteController;
+use App\Http\Controllers\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,8 +93,23 @@ Route::group(
         function () {
 
     Route::get('dashboard', [DashboardController::class, 'dashboardUser'])->name('dashboard');
-    Route::get('dca/bot', [BotController::class, 'index'])->name('bot.list');
+    //Route::get('dca/bot', [BotController::class, 'index'])->name('bot.list');
     Route::get('subscription', [BotController::class, 'list'])->name('subscriptions');
     Route::get('invite/friends', [InviteController::class, 'index'])->name('invites');
 
+    Route::get('/bot/list',App\Livewire\BotCrud::class)->name('bot.list');
+
+
+Route::get('/payment/usdt/address', [PaymentController::class, 'createUSDTDepositAddress']);
+Route::post('/payment/usdt/check', [PaymentController::class, 'checkUSDTDepositStatus']);
+
+
 });
+
+use App\Http\Controllers\SubscriptionController;
+Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
+Route::post('/subscription/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscription.subscribe');
+Route::get('/subscription/confirm-payment', [SubscriptionController::class, 'confirmPayment'])->name('subscription.confirm');
+Route::get('/subscription/success', function () {
+    return view('subscription.success');
+})->name('subscription.success');

@@ -13,4 +13,5 @@ class BotController extends Controller
         $plans=Plan::all();
         return view('user.subscription',compact('plans'));
     }
+
 }
