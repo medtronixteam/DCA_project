@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\LoginController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\BotController;
+use App\Http\Controllers\ExchangeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
     Route::post('bot/create', [BotController::class, 'store']);
-    Route::post('bot/lists', [BotController::class, 'lists']);
+    Route::get('bot/lists', [BotController::class, 'lists']);
 
 
+    Route::post('echange/add', [ExchangeController::class, 'addEchange']);
 
 
 

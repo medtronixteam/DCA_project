@@ -42,12 +42,12 @@ class BotCrud extends Component
     {
         //;
        $validatedData = $this->validate([
-        'base_order' => 'required|integer',
-        'order_type' => 'required',
-        'strategy' => 'required',
-        'bot_type' => 'required',
-        'bot_name' => 'required|string',
-        'deal_start_condition' => 'required|string', // assuming string for simplicity
+        'base_order' => 'required|integer|min:100',
+    'order_type' => 'required|in:limit,market', // Corrected `in` rule syntax
+    'strategy' => 'required|in:long,short', // Corrected `in` rule syntax
+    'bot_type' => 'required|in:single,multi', // Corrected `in` rule syntax
+    'bot_name' => 'required|string',
+    'deal_start_condition' => 'required|string',
     ]);
 
         $validatedData['exchange']=auth()->user()->exchange;

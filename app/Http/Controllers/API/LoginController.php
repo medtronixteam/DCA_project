@@ -86,6 +86,7 @@ public function login(Request $request)
                 "username" =>  User::generateUsername($request->name),
                 "invited_by" => $invited_by,
             ]);
+            $user->sendEmailVerificationNotification();
             $token = $user->createToken('my-users-token')->plainTextToken;
             unset($user->id);
             unset($user->invited_by);
