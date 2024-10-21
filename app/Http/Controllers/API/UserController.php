@@ -34,4 +34,14 @@ class UserController extends Controller
         ];
     return response($response, $response['code']);
     }
+    public function verification(Request $request)  {
+
+        $request->user()->sendEmailVerificationNotification();
+        $response = [
+            'message'=>"Verification email has been sent",
+            'status'=>'success',
+            'code'=>200,
+        ];
+    return response($response, $response['code']);
+    }
 }

@@ -54,16 +54,12 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
     public static function generateUsername($name)
     {
-        // Convert the name to a slug (URL-friendly string)
+
         $baseUsername = Str::slug($name);
-
-        // Start with the base username
         $username = $baseUsername;
-
-        // Check if this username already exists
         $counter = 1;
         while (User::where('username', $username)->exists()) {
-            // If it exists, append a number to make it unique
+
             $username = $baseUsername . $counter;
             $counter++;
         }

@@ -29,11 +29,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('user/invite-link', [UserController::class, 'inviteLink']);
     Route::get('user/refferals', [UserController::class, 'refferals']);
     Route::get('user/profile', [UserController::class, 'profile']);
+    Route::post('email/verification', [UserController::class, 'verification'])->middleware(['throttle:6,1']);
+
+
     Route::post('user/profile/change-password', [LoginController::class, 'passwordChange']);
-
-
-
-
     Route::post('bot/create', [BotController::class, 'store']);
     Route::get('bot/lists', [BotController::class, 'lists']);
 
