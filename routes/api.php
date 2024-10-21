@@ -33,8 +33,15 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
     Route::post('user/profile/change-password', [LoginController::class, 'passwordChange']);
+
+
     Route::post('bot/create', [BotController::class, 'store']);
     Route::get('bot/lists', [BotController::class, 'lists']);
+    Route::delete('bot/{botId}', [BotController::class, 'delete']);
+    Route::get('bot/{botId}', [BotController::class, 'single']);
+    Route::get('bot/stop/{botId}', [BotController::class, 'stop']);
+    Route::get('bot/atart/{botId}', [BotController::class, 'start']);
+
 
 
     Route::post('exchange/add', [ExchangeController::class, 'addExchange']);
