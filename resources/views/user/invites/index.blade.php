@@ -51,7 +51,7 @@
                     <div class="col-sm-6">
 
                         <input type="text" id="url" name="url"
-                            value="{{ route('signup') }}?ref={{ Auth::user()->id }}" class="form-control">
+                            value="{{ route('signup') }}?ref={{ Auth::user()->username }}" class="form-control">
 
                     </div>
                     <div class="col-sm-6">

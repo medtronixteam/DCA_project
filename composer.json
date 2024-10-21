@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "bacon/bacon-qr-code": "^3.0",
         "ccxt/ccxt": "^1.53",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
@@ -13,6 +14,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5",
         "mercuryseries/flashy": "^1.0",
+        "pragmarx/google2fa-laravel": "^2.2",
         "spatie/async": "^1.6"
     },
     "require-dev": {

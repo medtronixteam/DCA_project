@@ -118,3 +118,10 @@ Route::get('/subscription/confirm-payment', [SubscriptionController::class, 'con
 Route::get('/subscription/success', function () {
     return view('subscription.success');
 })->name('subscription.success');
+
+use App\Http\Controllers\Google2FAController;
+
+Route::get('2fa/setup', [Google2FAController::class, 'setup'])->name('2fa.setup');
+Route::post('2fa/setup', [Google2FAController::class, 'store'])->name('2fa.store');
+Route::get('2fa/verify', [Google2FAController::class, 'verify'])->name('2fa.verify');
+Route::post('2fa/verify', [Google2FAController::class, 'validateToken'])->name('2fa.validate');

@@ -9,7 +9,7 @@
 
 
             @if (session()->has('message'))
-                <div style="color: green;">
+                <div class="alert alert-dark">
                     {{ session('message') }}
                 </div>
             @endif
@@ -30,7 +30,7 @@
                                 @enderror
                             </div>
                             <div class="col-sm-6">
-                                <label for="base_order">Exchange:</label>
+                                <label for="exchange">Exchange:</label>
                                 <div class="input-group input-group-button">
                                     <input type="text" class="form-control" value="{{auth()->user()->exchange}}" placeholder="Right Button">
                                     <button class="btn btn-dark" type="button">Change</button>
@@ -46,22 +46,22 @@
                                 <div class="col-6">
                                     <h6>Strategy</h6>
                                     <div class="btn-group" role="group">
-                                        <input type="radio" wire:click='changeStrategy("long")' class="btn-check" name="strategy" value="long" id="btnLong"
+                                        <input type="radio" {{($strategy=="long")?"checked":""}} wire:click='changeStrategy("long")' class="btn-check" name="strategy" value="long" id="btnLong"
                                             checked>
                                         <label class="btn btn-tabs px-5" for="btnLong">Long</label>
 
-                                        <input type="radio" wire:click='changeStrategy("short")' class="btn-check" name="strategy" id="btnShort">
+                                        <input type="radio" {{($strategy=="short")?"checked":""}} wire:click='changeStrategy("short")' class="btn-check" name="strategy" id="btnShort">
                                         <label class="btn btn-tabs px-5" for="btnShort">Short</label>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <h6>Bot Pair</h6>
                                     <div class="btn-group" role="group">
-                                        <input type="radio" class="btn-check" name="pair" wire:click='changePair("single")' id="btnsingle-pair"
-                                            checked>
+                                        <input type="radio" class="btn-check" name="bot_type" wire:click='changePair("single")' id="btnsingle-pair"
+                                        {{($bot_type=="single")?"checked":""}}>
                                         <label class="btn btn-tabs px-5" for="btnsingle-pair">Single </label>
 
-                                        <input type="radio" class="btn-check" name="pair" wire:click='changePair("multi")' id="btnmulti-pair">
+                                        <input type="radio" class="btn-check" name="bot_type" wire:click='changePair("multi")' id="btnmulti-pair" {{($bot_type=="multi")?"checked":""}}>
                                         <label class="btn btn-tabs px-5" for="btnmulti-pair">Multi </label>
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                             <div class="col-sm-6">
                                 <label for="base_order">Base Order:</label>
                                 <div class="input-group input-group-dropdown mt-1">
-                                    <input type="text" wire:model="base_order" class="form-control"
+                                    <input type="number" min="0" wire:model="base_order" class="form-control"
                                         aria-label="Text input with dropdown button">
                                     <button type="button" class="btn btn-secondary dropdown-toggle"
                                         data-bs-toggle="dropdown" aria-haspopup="true"
@@ -99,10 +99,10 @@
                             <div class="col-6">
                                 <h6>Start Order Type</h6>
                                 <div class="btn-group" role="group">
-                                    <input type="radio" class="btn-check" name="order_type" id="btnLimit" checked>
+                                    <input wire:click='changeOrder("limit")' value="limit" type="radio" class="btn-check" name="order_type" id="btnLimit" {{($order_type=="limit")?"checked":""}}>
                                     <label class="btn btn-tabs px-5"  for="btnLimit">Limit</label>
 
-                                    <input type="radio" class="btn-check" name="order_type" id="btnMarket">
+                                    <input type="radio" wire:click='changeOrder("market")' value="market" class="btn-check" name="order_type" id="btnMarket" {{($order_type=="market")?"checked":""}}>
                                     <label class="btn btn-tabs px-5" for="btnMarket">Market</label>
                                 </div>
                             </div>
@@ -121,8 +121,8 @@
                         <div class="row">
 
                             <div class="col-sm-12">
-                                <label for="base_order">Condition:</label>
-                                <select class="form-control" name="deal_start_condition" id="">
+                                <label for="deal_start_condition">Condition:</label>
+                                <select class="form-control" wire:model='deal_start_condition' name="deal_start_condition" id="">
                                     <option value="cqs">CQS Condition</option>
                                     <option value="qfl">QFL Condition</option>
                                 </select>

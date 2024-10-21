@@ -74,6 +74,12 @@ class LoginController extends Controller
             $referId=null;
             if(session()->has('referId')){
                 $referId=session()->get('referId');
+                $username=User::where('username',$referId)->where('status',1);
+                if($username->count()==0){
+
+                    return back()->with('error', 'Registration failed!');
+                }
+                $referId=$username->first()->id;
             }
            $user= User::create([
 
@@ -122,6 +128,7 @@ class LoginController extends Controller
     function settings() {
         return view('user.settings');
     }
+
 
 
 }
