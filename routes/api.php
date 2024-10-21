@@ -38,7 +38,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('bot/lists', [BotController::class, 'lists']);
 
 
-    Route::post('echange/add', [ExchangeController::class, 'addEchange']);
+    Route::post('exchange/add', [ExchangeController::class, 'addExchange']);
 
 
 

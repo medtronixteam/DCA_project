@@ -11,7 +11,7 @@ class ExchangeController extends Controller
         $validator = Validator::make($request->all(), [
             'api_secrect' => 'required',
             'api_key' => 'required',
-            'exchange' => 'required',
+            'exchange' => 'required|in:binance.us,binance,coinbase,gate,huobi,kucoin,okx,pionex',
 
             ]);
          if ($validator->fails()) {
@@ -30,6 +30,9 @@ class ExchangeController extends Controller
             'exchange_name' => $request->exchange,
         ]);
 
+        $response = ['message' => "Exchange has been saved",
+        'status' => 'success', 'code' => 200];
+        return response($response, $response['code']);
 
     }
 }
