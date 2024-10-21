@@ -7,6 +7,7 @@ use App\Models\Bot;
 use Illuminate\Http\Request;
 use Validator;
 
+class BotController extends Controller
 {
     function store(Request $request)  {
 

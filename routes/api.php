@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\LoginController;
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\BotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,19 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('user/invite-link', [UserController::class, 'inviteLink']);
     Route::get('user/refferals', [UserController::class, 'refferals']);
-    Route::get('user/profile/change-password', [LoginController::class, 'passwordChange']);
+    Route::get('user/profile', [UserController::class, 'profile']);
+    Route::post('user/profile/change-password', [LoginController::class, 'passwordChange']);
+
+
+
+
+    Route::post('bot/create', [BotController::class, 'store']);
+    Route::post('bot/lists', [BotController::class, 'lists']);
+
+
+
+
+
+
 
 });

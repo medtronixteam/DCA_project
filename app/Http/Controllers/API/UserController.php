@@ -26,4 +26,12 @@ class UserController extends Controller
         ];
     return response($response, $response['code']);
     }
+    public function profile(){
+         $response = [
+            'message'=>auth()->user(),
+            'status'=>'success',
+            'code'=>200,
+        ];
+    return response($response, $response['code']);
+    }
 }
