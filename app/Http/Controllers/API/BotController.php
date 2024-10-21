@@ -43,7 +43,7 @@ class BotController extends Controller
     }
      function lists(){
         $botData=Bot::where("user_id",auth('sanctum')->user()->id)->latest()->get();
-        $response = ['message' =>$botData,
+        $response = ['data' =>$botData,
         'status' => 'success', 'code' => 200];
 
         return response($response, $response['code']);
