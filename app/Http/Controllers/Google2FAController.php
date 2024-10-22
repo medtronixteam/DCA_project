@@ -1,10 +1,12 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use PragmaRX\Google2FALaravel\Google2FA;
+use Validator;
 use Illuminate\Support\Facades\Redirect;
+use PragmaRX\Google2FALaravel\Google2FA;
 
 class Google2FAController extends Controller
 {
@@ -14,29 +16,30 @@ class Google2FAController extends Controller
     {
         $this->google2fa = $google2fa;
     }
-
-    // Step 5: Show 2FA Setup Page
     public function setup()
     {
-        $user = Auth::user();
+        try {
+            $user = auth('sanctum')->user();
+            $secret = $this->google2fa->generateSecretKey();
+            $user->google2fa_secret = $secret;
+            $user->save();
 
-        // if ($user->google2fa_secret) {
-        //     return redirect()->route('2fa.verify');
-        // }
+            // Generate a QR code URL
+            $qrCodeUrl = $this->google2fa->getQRCodeInline(
+                'troxpiApp',
+                $user->email,
+                $secret
+            );
+            $response = ['message' => "QR Code Gernerated Successfully", 'qrCodeUrl' => $qrCodeUrl, 'secret' => $secret,
+                'status' => 'success', 'code' => 200];
 
-        // Generate a secret key for the user
-        $secret = $this->google2fa->generateSecretKey();
-        $user->google2fa_secret = $secret;
-        $user->save();
+        } catch (\Throwable $th) {
+            $response = ['message' => "Something went wrong .",
+                'status' => 'error', 'code' => 500];
 
-        // Generate a QR code URL
-        $qrCodeUrl = $this->google2fa->getQRCodeInline(
-            'troxpiApp', // This should be your app name
-            $user->email,
-            $secret
-        );
+        }
+        return response($response, $response['code']);
 
-        return view('user.2fa.setup', ['qrCodeUrl' => $qrCodeUrl, 'secret' => $secret]);
     }
 
     // Step 6: Store 2FA Secret
@@ -55,18 +58,49 @@ class Google2FAController extends Controller
         return view('user.2fa.verify');
     }
 
-    // Step 8: Validate the 2FA Token
+    public function disable()
+    {
+        $user = auth('sanctum')->user();
+        $user->is_2fa_enabled = false;
+        $user->google2fa_secret = null;
+        $user->save();
+
+        $response = ['message' => "2FA has been disabled.",
+                'status' => 'success', 'code' => 200];
+        return response($response, $response['code']);
+    }
+
     public function validateToken(Request $request)
     {
-        $user = Auth::user();
+        $validator = Validator::make($request->all(), [
+            'code' => 'required',
 
-        $valid = $this->google2fa->verifyKey($user->google2fa_secret, $request->input('token'));
-
-        if ($valid) {
-            return "2FA verified successfully.";
-            return redirect()->route('dashboard')->with('success', '2FA verified successfully.');
-        } else {
-            return redirect()->back()->withErrors(['token' => 'Invalid 2FA code.']);
+        ]);
+        if ($validator->fails()) {
+            $messages = $validator->messages()->first();
+            $response = ['message' => $messages,
+                'status' => 'error', 'code' => 500];
+            return response($response, $response['code']);
         }
+        try {
+
+            $user = auth('sanctum')->user();
+
+            $valid = $this->google2fa->verifyKey($user->google2fa_secret, $request->input('code'));
+
+            if ($valid) {
+
+                $response = ['message' => "2FA verified successfully.",
+                'status' => 'success', 'code' => 200];
+            } else {
+
+                $response = ['message' => "Invalid 2FA code.",
+                'status' => 'error', 'code' => 500];
+            }
+        } catch (\Throwable $th) {
+            $response = ['message' => "Something went wrong .",
+                'status' => 'error', 'code' => 500];
+        }
+        return response($response, $response['code']);
     }
 }

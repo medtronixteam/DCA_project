@@ -6,6 +6,7 @@ use App\Http\Controllers\API\LoginController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\BotController;
 use App\Http\Controllers\ExchangeController;
+use App\Http\Controllers\Google2FAController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,11 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('bot/{botId}', [BotController::class, 'single']);
     Route::get('bot/stop/{botId}', [BotController::class, 'stop']);
     Route::get('bot/atart/{botId}', [BotController::class, 'start']);
+
+
+    Route::get('auth/enable-2fa', [Google2FAController::class, 'setup']);
+    Route::get('auth/disable-2fa', [Google2FAController::class, 'disable']);
+    Route::post('auth/verify-2fa', [Google2FAController::class, 'validateToken']);
 
 
 
