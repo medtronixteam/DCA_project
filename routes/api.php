@@ -51,6 +51,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
     Route::post('exchange/add', [ExchangeController::class, 'addExchange']);
+    Route::get('exchange/balance/{exchange?}', [ App\Http\Controllers\API\ExchangeController::class, 'showBalance']);
+
 
 
 

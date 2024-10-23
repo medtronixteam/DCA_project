@@ -15,8 +15,8 @@ class BinanceController extends Controller
     public function __construct()
     {
         // Your Binance API credentials
-        $this->apiKey = env('BINANCE_API_KEY');
-        $this->apiSecret = env('BINANCE_API_SECRET');
+        $this->apiKey = env('BINANCE_ADMIN_KEY');
+        $this->apiSecret = env('BINANCE_ADMIN_SECRET');
        // $this->pool = Pool::create();
     }
 
@@ -48,7 +48,7 @@ class BinanceController extends Controller
     });
     $results = $pool->wait();
 
-    return $results[0] ?? 'too kate';
+    return $results[0] ?? 'too late';
     }
 
     // Listen for USDT deposits via Binance WebSocket or REST API polling

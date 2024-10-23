@@ -86,13 +86,14 @@ class LoginController extends Controller
                 "password" =>  $validatedData["password"],
                 "name" =>  $validatedData["name"],
                 "email" =>  $validatedData["email"],
+                "username" =>  User::generateUsername($request->name),
                 "status" =>  1,
                 "invited_by" => $referId,
 
             ]);
             Auth::login($user);
          //   $user->sendEmailVerificationNotification();
-            flashy()->success('Account has been Created Login Here', '#');
+            flashy()->success('Account has been Created', '#');
             return redirect()->route('dashboard')->with('success', 'Registered Successful!');
 
         }

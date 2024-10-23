@@ -1,3 +1,4 @@
+
 <form wire:submit.prevent="{{ $updateMode ? 'update' : 'store' }}">
 <div class="row">
     <div class="col-8">
@@ -114,7 +115,7 @@
                 {{-- end of card --}}
 
                 <div class="card  my-2">
-                    <div class="card-header">
+                    <div class="card-header border-bottom">
                         Deal Start Conditions
                     </div>
                     <div class="card-body">
@@ -133,6 +134,103 @@
                             </div>
                             <div class="col-6">
                                {{-- <button class="btn btn-dark ">Add Condition</button> --}}
+                            </div>
+                        </div>
+                        {{-- end of row --}}
+                    </div>
+
+                </div>
+                {{-- end of card --}}
+                <div class="card  my-2">
+                    <div class="card-header border-bottom">
+                       Safety Order
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-sm-6 my-1">
+                                <label for="deal_start_condition">Saftey Order Size:</label>
+                               <input wire:model='order_size' type="number" class="form-control">
+
+                                @error('order_size')
+                                    <span style="color: red;">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-sm-6 my-1">
+                                <label for="deal_start_condition">Price deviation to open safety orders %:</label>
+                               <input type="number" wire:model='price_deviation_percentage'  class="form-control">
+
+                                @error('price_deviation_percentage')
+                                    <span style="color: red;">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-sm-6 my-1">
+                                <label for="deal_start_condition">Max Safety Order Count:</label>
+                               <input type="number" wire:model='max_order_count'  class="form-control">
+
+                                @error('max_order_count')
+                                    <span style="color: red;">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-sm-6 my-1">
+                                <label for="deal_start_condition">Max Active Safety Orders count %:</label>
+                               <input type="number" wire:model='order_count_percentage' class="form-control">
+
+                                @error('order_count_percentage')
+                                    <span style="color: red;">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-sm-6 my-1">
+                                <label for="deal_start_condition">Safety order volume scale :</label>
+                               <input type="number" wire:model='order_volumn' class="form-control">
+
+                                @error('order_volumn')
+                                    <span style="color: red;">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-sm-6 my-1">
+                                <label for="deal_start_condition">
+                                    Safety order step scale :</label>
+                               <input type="number" wire:model='step_scale' class="form-control">
+
+                                @error('step_scale')
+                                    <span style="color: red;">{{ $message }}</span>
+                                @enderror
+                            </div>
+
+                        </div>
+                        {{-- end of row --}}
+                    </div>
+
+                </div>
+                {{-- end of card --}}
+
+                <div class="card  my-2">
+                    <div class="card-header border-bottom">
+                        Exit order
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <label for="deal_start_condition">Take profit type:</label>
+                                <select class="form-control" wire:model='profit_type' name="profit_type" id="">
+                                    <option value="total_volume">Pecentage From Total Volume</option>
+                                    <option value="base_order">Pecentage From Base Order</option>
+                                </select>
+
+                                @error('profit_type')
+                                    <span style="color: red;">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-6">
+                                <label for="deal_start_condition">
+                                   Target Profit :</label>
+                               <input type="number" wire:model='target_profit' class="form-control">
+
+                                @error('target_profit')
+                                    <span style="color: red;">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         {{-- end of row --}}

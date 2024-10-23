@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "866d3b3dfef41553b35d114a8d17e860",
+    "content-hash": "2055a3586db4810c644520f54c9e68ca",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -191,33 +191,35 @@
         },
         {
             "name": "ccxt/ccxt",
-            "version": "1.53.1",
+            "version": "1.93.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ccxt/ccxt.git",
-                "reference": "df03acf6997ff35ee84abadc80bebcbe13e5efdc"
+                "reference": "9ff03248d9beebe0127c23df3de6341b62449012"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ccxt/ccxt/zipball/df03acf6997ff35ee84abadc80bebcbe13e5efdc",
-                "reference": "df03acf6997ff35ee84abadc80bebcbe13e5efdc",
+                "url": "https://api.github.com/repos/ccxt/ccxt/zipball/9ff03248d9beebe0127c23df3de6341b62449012",
+                "reference": "9ff03248d9beebe0127c23df3de6341b62449012",
                 "shasum": ""
             },
             "require": {
                 "ext-bcmath": "*",
                 "ext-curl": "*",
+                "ext-gmp": "*",
                 "ext-iconv": "*",
                 "ext-json": "*",
                 "ext-openssl": "*",
                 "ext-pcre": "*",
                 "pear/console_table": "1.3.1",
-                "php": ">=5.4.0",
+                "php": ">=7.0",
                 "symfony/polyfill-mbstring": "^1.7"
             },
             "suggest": {
                 "clue/buzz-react": "Required for asynchronous API calls to exchanges with PHP",
                 "clue/http-proxy-react": "Required for using a proxy when doing asynchronous API calls to exchanges with PHP",
                 "react/event-loop": "Required for asynchronous API calls to exchanges with PHP",
+                "react/http": "Required for asynchronous API calls to exchanges with PHP",
                 "recoil/react": "Required for asynchronous API calls to exchanges with PHP",
                 "recoil/recoil": "Required for asynchronous API calls to exchanges with PHP"
             },
@@ -462,7 +464,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ccxt/ccxt/issues",
-                "source": "https://github.com/ccxt/ccxt/tree/1.53.1"
+                "source": "https://github.com/ccxt/ccxt/tree/1.93.1"
             },
             "funding": [
                 {
@@ -470,7 +472,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-07-13T22:50:19+00:00"
+            "time": "2022-09-02T19:55:37+00:00"
         },
         {
             "name": "dasprid/enum",
