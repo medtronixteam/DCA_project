@@ -74,19 +74,26 @@ class LoginController extends Controller
             $referId=null;
             if(session()->has('referId')){
                 $referId=session()->get('referId');
+                $username=User::where('username',$referId)->where('status',1);
+                if($username->count()==0){
+
+                    return back()->with('error', 'Registration failed!');
+                }
+                $referId=$username->first()->id;
             }
            $user= User::create([
 
                 "password" =>  $validatedData["password"],
                 "name" =>  $validatedData["name"],
                 "email" =>  $validatedData["email"],
+                "username" =>  User::generateUsername($request->name),
                 "status" =>  1,
                 "invited_by" => $referId,
 
             ]);
             Auth::login($user);
          //   $user->sendEmailVerificationNotification();
-            flashy()->success('Account has been Created Login Here', '#');
+            flashy()->success('Account has been Created', '#');
             return redirect()->route('dashboard')->with('success', 'Registered Successful!');
 
         }
@@ -122,6 +129,7 @@ class LoginController extends Controller
     function settings() {
         return view('user.settings');
     }
+
 
 
 }

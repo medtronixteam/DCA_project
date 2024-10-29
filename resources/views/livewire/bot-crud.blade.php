@@ -21,7 +21,16 @@
     </div>
 
     <div class="pcoded-inner-content">
+        <div wire:loading class="card name-card pt-4 w-100 d-flex- justify-content-center vh-100">
+
+            <div class="d-flex justify-content-center  align-items-center">
+                @include('loader')
+            </div>
+        </div>
+
         @if (!$ListMode)
+
+
         @include('livewire.bot-create')
 
         @else
@@ -37,7 +46,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Bot Name</th>
-                                <th>Market Type</th>
+
                                 <th>Strategy</th>
                                 <th>Bot Type</th>
                                 <th>Actions</th>
@@ -48,13 +57,11 @@
                                 <tr>
                                     <td>{{ $bot->id }}</td>
                                     <td>{{ $bot->bot_name }}</td>
-                                    <td>{{ $bot->market_type }}</td>
                                     <td>{{ $bot->strategy }}</td>
                                     <td>{{ $bot->bot_type }}</td>
-                                    <td>{{ $bot->deal_start_conditions }}</td>
                                     <td>
-                                        <button wire:click="edit({{ $bot->id }})">Edit</button>
-                                        <button wire:click="delete({{ $bot->id }})"
+                                        <button class="btn btn-dark" wire:click="edit({{ $bot->id }})">Edit</button>
+                                        <button class="btn btn-dark" wire:click="delete({{ $bot->id }})"
                                             onclick="return confirm('Are you sure?')">Delete</button>
                                     </td>
                                 </tr>

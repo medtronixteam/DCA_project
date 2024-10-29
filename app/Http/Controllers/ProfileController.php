@@ -36,5 +36,6 @@ class ProfileController extends Controller
         flashy()->info('Password has been updated successfully!', '#');
         return back();
     }
+    
 
 }

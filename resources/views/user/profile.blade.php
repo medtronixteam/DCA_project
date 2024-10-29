@@ -13,6 +13,7 @@
                     <button class="btn btn-black mt-3" type="submit">Update Name</button>
                 </form>
             </div>
+           @livewire('two-fa')
 
             <!-- Password Update Form -->
             <div class="card password-card p-4 mb-4">

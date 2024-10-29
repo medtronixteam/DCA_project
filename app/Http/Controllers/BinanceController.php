@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Exception;
 use Illuminate\Support\Facades\Http;
+use Spatie\Async\Pool;
 
 class BinanceController extends Controller
 {
@@ -14,13 +15,18 @@ class BinanceController extends Controller
     public function __construct()
     {
         // Your Binance API credentials
-        $this->apiKey = env('BINANCE_API_KEY');
-        $this->apiSecret = env('BINANCE_API_SECRET');
+        $this->apiKey = env('BINANCE_ADMIN_KEY');
+        $this->apiSecret = env('BINANCE_ADMIN_SECRET');
+       // $this->pool = Pool::create();
     }
 
     // Generate a USDT deposit address for the user
     public function generateUSDTDepositAddress($userId)
     {
+        $pool = Pool::create();
+
+        // Add the request to the pool
+        $pool[] = async(function () use ($userId) {
         try {
             $response = Http::withHeaders([
                 'X-MBX-APIKEY' => $this->apiKey,
@@ -31,12 +37,18 @@ class BinanceController extends Controller
 
             if ($response->successful()) {
                 return $response->json()['address'];
+            }else{
+                return $response->json()['msg'];
             }
 
-            return null;
+
         } catch (Exception $e) {
-            return null;
+            return $e->getMessage() ;
         }
+    });
+    $results = $pool->wait();
+
+    return $results[0] ?? 'too late';
     }
 
     // Listen for USDT deposits via Binance WebSocket or REST API polling

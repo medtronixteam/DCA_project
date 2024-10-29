@@ -20,7 +20,7 @@ class SubscriptionController extends Controller
     public function subscribe(Request $request)
     {
         $user = Auth::user();
-        $plan = Plan::find($request->plan_id);
+        $plan = Plan::where('name',$request->name)->first();
 
         if (!$plan) {
             return back()->with('error', 'Plan not found.');
@@ -29,14 +29,14 @@ class SubscriptionController extends Controller
         // Save subscription details (pending until payment confirmation)
         $subscription = Subscription::create([
             'user_id' => $user->id,
-            'plan_name' => $plan->plan_name,
+            'plan_name' => $plan->name,
             'price' => $plan->price,
             'status' => 'pending',
         ]);
 
         // Generate USDT deposit address using Binance API (via a service)
         $binanceService = new BinanceController();
-        $depositAddress = $binanceService->generateUSDTDepositAddress($user->id);
+      return  $depositAddress = $binanceService->generateUSDTDepositAddress($user->id);
 
         // Show deposit address to the user for payment
         return view('subscription.payment', compact('depositAddress', 'subscription'));

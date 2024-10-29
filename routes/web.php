@@ -69,8 +69,8 @@ Route::get('/email/verify', function () {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+    return redirect('/dashboard');
+})->middleware(['signed'])->name('verification.verify');
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
@@ -112,9 +112,16 @@ Route::post('/payment/usdt/check', [PaymentController::class, 'checkUSDTDepositS
 });
 
 use App\Http\Controllers\SubscriptionController;
-Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
+//Route::get('/subscription', [SubscriptionController::class, 'index'])->name('subscription.index');
 Route::post('/subscription/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscription.subscribe');
 Route::get('/subscription/confirm-payment', [SubscriptionController::class, 'confirmPayment'])->name('subscription.confirm');
 Route::get('/subscription/success', function () {
     return view('subscription.success');
 })->name('subscription.success');
+
+use App\Http\Controllers\Google2FAController;
+
+Route::get('2fa/setup', [Google2FAController::class, 'setup'])->name('2fa.setup');
+Route::post('2fa/setup', [Google2FAController::class, 'store'])->name('2fa.store');
+Route::get('2fa/verify', [Google2FAController::class, 'verify'])->name('2fa.verify');
+Route::post('2fa/verify', [Google2FAController::class, 'validateToken'])->name('2fa.validate');

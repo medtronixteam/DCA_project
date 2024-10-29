@@ -63,12 +63,12 @@
                         <div class="card p-4 rounded">
                             <h5 class="card-title">Pro</h5>
                             <h3 class="fw-bold mb-2">${{ $plans[0]->price }}/{{ $plans[0]->duration }}</h3>
-                            <form action="" method="post" id="change-price-form">
+                            <form action="{{route('subscription.subscribe')}}" method="post" id="change-price-form">
                                 @csrf
                                 <input type="hidden" value="pro" name="name">
                                 <input type="hidden" value="month" name="duration">
                                 <button type="submit" class="btn mb-3 custom change-price-button rounded-2"
-                                    style="margin-top: 100px; border: 1px solid #737988">Choos Plan </button>
+                                    style="margin-top: 100px; border: 1px solid #737988">Choose Plan </button>
                             </form>
                         </div>
                     </div>
@@ -76,12 +76,12 @@
                         <div class="card p-4 rounded">
                             <h5 class="card-title">Expert</h5>
                             <h3 class="fw-bold mb-2">${{ $plans[1]->price }}/{{ $plans[1]->duration }}</h3>
-                            <form action="" method="post" id="change-price-form2">
+                            <form action="{{route('subscription.subscribe')}}" method="post" id="change-price-form2">
                                 @csrf
                                 <input type="hidden" value="expert" name="name">
                                 <input type="hidden" value="month" name="duration">
                                 <button type="submit" class="btn mb-3 custom change-price-button rounded-2"
-                                    style="margin-top: 100px; border: 1px solid #737988">Choos Plan </button>
+                                    style="margin-top: 100px; border: 1px solid #737988">Choose Plan </button>
 
                             </form>
                         </div>

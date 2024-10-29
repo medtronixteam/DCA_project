@@ -8,7 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Sanctum\HasApiTokens;
-
+use Illuminate\Support\Str;
+use PragmaRX\Google2FALaravel\Support\Authenticator;
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -26,6 +27,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'invited_by',
         'is_subscribed',
         'subscription_date',
+        'google2fa_secret',
+        'is_2fa_enabled',
+        'username'
 
     ];
 
@@ -48,4 +52,18 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public static function generateUsername($name)
+    {
+
+        $baseUsername = Str::slug($name);
+        $username = $baseUsername;
+        $counter = 1;
+        while (User::where('username', $username)->exists()) {
+
+            $username = $baseUsername . $counter;
+            $counter++;
+        }
+
+        return $username;
+    }
 }

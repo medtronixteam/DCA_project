@@ -27,4 +27,12 @@ class Handler extends ExceptionHandler
             //
         });
     }
+    public function unauthenticated($request, \Illuminate\Auth\AuthenticationException $exception)
+{
+    return response()->json([
+        'message' => 'You are not authenticated.',
+        'code' => 401,
+        'status'=>'error',
+    ], 401);
+}
 }
