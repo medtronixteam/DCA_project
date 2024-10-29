@@ -10,6 +10,7 @@ use App\Models\User;
 class MainController extends Controller
 {
 
+
     function listPlan() {
         $plans=Plan::all();
         return view('user.subscription',compact('plans'));
@@ -35,6 +36,7 @@ class MainController extends Controller
            flashy()->info('User enabled successfully', '#');
            return back();
        }
+
        public function delete($id)
        {
            $user = User::findOrFail($id);

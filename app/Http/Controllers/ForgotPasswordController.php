@@ -46,3 +46,4 @@ class ForgotPasswordController extends Controller
         return back()->with('status', 'We have emailed your password reset link!');
     }
 }
+//

@@ -9,8 +9,6 @@
 
         <div class="page-header card">
         </div>
-
-        <div class="pcoded-inner-co
                 <!-- Main content -->
                 <div class="flex-grow-1">
                     <!-- Header -->
